@@ -16,6 +16,17 @@ image = "PennFish_Detecting_Phishing_Websites_-_A_Machine_Learning_Approach.jpg"
 
 <!-- ![PennFish Detecting Phishing Websites - A Machine Learning Approach.jpg](PennFish_Detecting_Phishing_Websites_-_A_Machine_Learning_Approach.jpg) -->
 
+Team Project of CIS 5450 Big Data Analytics
+
+## Pennfish Web App Demo
+
+Screencast Video Demo:
+
+<video width="100%" autoplay loop controls>
+  <source src="pennfish-app-demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ## Background
 
 ### **Need for Advanced Detection Systems**
@@ -89,7 +100,7 @@ Let's check the first few rows of the dataset.
 df_features.head(2)
 ```
 
-![Untitled](Untitled_1.png)
+![](Untitled_1.png)
 
 The author of this dataset has described the features in the dataset as follows:
 
@@ -174,7 +185,7 @@ It allows browsers to, for example:
 - Highlight the most important part of a domain name in the user interface
 - Accurately sort history entries by site
 
-![Untitled](Untitled_2.png)
+![](Untitled_2.png)
 
 The Public Suffix List is an initiative of Mozilla, but is maintained as a community resource. It is available for use in any software, but was originally created to meet the needs of browser manufacturers.
 
@@ -234,7 +245,7 @@ df_features['PublicSuffix'] = df_features['URL'].apply(lambda x: extract_domain_
 
 Make sure the public suffixes have been extracted properly:
 
-![Untitled](Untitled_4.png)
+![](Untitled_4.png)
 
 ```python
 ## List the unique values of PublicSuffix
@@ -288,7 +299,7 @@ df_tld_pricing = pd.read_csv('tld-pricing.csv')
 df_tld_pricing.head()
 ```
 
-![Untitled](Untitled_7.png)
+![](Untitled_7.png)
 
 Obviously, we need to perform some data cleaning work.
 
@@ -311,7 +322,7 @@ df_tld_pricing = df_tld_pricing.dropna(subset=['DomainPrice'])
 df_tld_pricing = df_tld_pricing[df_tld_pricing['DomainPrice'] > 0] # keep only > 0 prices
 ```
 
-![Untitled](Untitled_8.png)
+![](Untitled_8.png)
 
 There are certain suffixes of which a domain price is not available due to many reasons. We impute these values with the median domain price, which is $15.60, a reasonable price in the domain name industry.
 
@@ -352,7 +363,7 @@ df_features = pd.merge(df_features, df_tld_pricing, on='PublicSuffix', how='left
 df_features.head(2)
 ```
 
-![Untitled](Untitled_9.png)
+![](Untitled_9.png)
 
 ### Remove Unnecessary Labels
 
@@ -609,7 +620,7 @@ import plotly.express as px
 df_urls_data.head()
 ```
 
-![Untitled](Untitled_10.png)
+![](Untitled_10.png)
 
 Let's also check the shape of the dataframes. Make sure they are loaded correctly from the preprocessing notebook.
 
@@ -705,7 +716,7 @@ memory usage: 57.6 MB
 msno.matrix(df_features_categorical)
 ```
 
-![Untitled](Untitled_11.png)
+![](Untitled_11.png)
 
 It appears that there are no missing values in the dataset. This is good news!
 
@@ -754,7 +765,7 @@ plt.xticks(ticks=[0, 1],
 plt.show()
 ```
 
-![Untitled](Untitled_12.png)
+![](Untitled_12.png)
 
 Based on the distribution, we can see the target label is not too imbalanced. We can proceed with the dataset as it is.
 
@@ -784,7 +795,7 @@ sns.heatmap(
 plt.show()
 ```
 
-![Untitled](Untitled_13.png)
+![](Untitled_13.png)
 
 Identify the feature pairs that have high correlation (threshold = 0.8):
 
@@ -830,11 +841,11 @@ for feature in columns:
 
 Here are some examples of the generated violin plots:
 
-![Untitled](Untitled_14.png)
+![](Untitled_14.png)
 
-![Untitled](Untitled_15.png)
+![](Untitled_15.png)
 
-![Untitled](Untitled_16.png)
+![](Untitled_16.png)
 
 #### Interactive Box Plots
 
@@ -1023,13 +1034,13 @@ The Chi-Square test results show that the top features that have the highest $\c
 
 1. **`HasSocialNet` (Chi2 Statistic: 145023.7420316948, P-value: 0.0)**:
     
-    ![Untitled](Untitled_17.png)
+    ![](Untitled_17.png)
     
     This feature shows us whether a website includes social network links, which is typical for legitimate sites as they often connect to many social media platforms for marketing purposes. For example, we know that UPenn's website [https://www.upenn.edu](https://www.upenn.edu/) typically has links to their Facebook, Twitter, and Instagram pages, etc. The phishign sites, as you may expect, are less likely to include these links, as most of them are not interested in promoting their site on social media.
     
 2. **`HasCopyrightInfo` (Chi2 Statistic: 130292.68757967741, P-value: 0.0)**:
     
-    ![Untitled](Untitled_18.png)
+    ![](Untitled_18.png)
     
     Copyright information adds legitimacy to a website by indicating ownership and the legality of content, which is another common indication of a legitimate site.
     
@@ -1046,7 +1057,7 @@ The Chi-Square test results show that the top features that have the highest $\c
     
 3. **`HasDescription` (Chi2 Statistic: 112334.62388393158, P-value: 0.0)**:
     
-    ![Untitled](Untitled_19.png)
+    ![](Untitled_19.png)
     
     Meta descriptions in the headers usually, if SEO is done right, provide a summary of the website's content on search engine results.
     
@@ -1061,19 +1072,19 @@ The Chi-Square test results show that the top features that have the highest $\c
     
 4. **`HasSubmitButton` (Chi2 Statistic: 78925.93676851525, P-value: 0.0)**:
     
-    ![Untitled](Untitled_20.png)
+    ![](Untitled_20.png)
     
     The presence of a submit button is common in forms where user input is required. Legitimate sites design these elements to be user-friendly and secure. Phishing sites often have forms designed to harvest data, so there is a higher chance of them having submit buttons.
     
 5. **`IsHTTPS` (Chi2 Statistic: 87486.78604118452, P-value: 0.0)**:
     
-    ![Untitled](Untitled_21.png)
+    ![](Untitled_21.png)
     
     HTTPS indicates that a site uses a secure protocol with installed SSL cert to encrypt data between the user and the server. Many phishing sites now also use HTTPS to appear legitimate, at least for those ones I personally encountered. The significant chi-squared statistic shows this feature is statistically significant for distinguishing between phishing and non-phishing sites.
     
 6. **`HasFavicon` (Chi2 Statistic: 57473.0059661682, P-value: 0.0)**:
     
-    ![Untitled](Untitled_22.png)
+    ![](Untitled_22.png)
     
     Favicons are small icons associated with a website, typically displayed in browser tabs and bookmarks. For example, visiting UPenn website [https://www.upenn.edu](https://www.upenn.edu/) will show you the UPenn logo in the browser tab. Phishing sites might not use custom favicons.
     
@@ -1106,7 +1117,7 @@ plt.xticks(rotation=90)
 plt.show()
 ```
 
-![Untitled](Untitled_23.png)
+![](Untitled_23.png)
 
 ### The Most Abused ccTLDs (country code TLDs)
 
@@ -1145,7 +1156,7 @@ plt.xticks(rotation=90)
 plt.show()
 ```
 
-![Untitled](Untitled_24.png)
+![](Untitled_24.png)
 
 #### Global Heat Map of ccTLD Phishing Abuse Counts
 
@@ -1188,7 +1199,7 @@ fig = px.choropleth(
 fig.show()
 ```
 
-![Untitled](Untitled_25.png)
+![](Untitled_25.png)
 
 The following bullet list provides a brief overview of some of the most abused country code top-level domains (ccTLDs):
 
@@ -1270,7 +1281,7 @@ plt.legend()
 plt.show()
 ```
 
-![Untitled](Untitled_26.png)
+![](Untitled_26.png)
 
 ```python
 pca = PCA(n_components = num_components)
@@ -1460,7 +1471,7 @@ plt.xlabel('Predicted Label')
 plt.show()
 ```
 
-![Untitled](Untitled_27.png)
+![](Untitled_27.png)
 
 ## **Random Forest Regression**
 
@@ -1558,7 +1569,7 @@ plt.title('Cumulative explained variance ratio')
 plt.show()
 ```
 
-![Untitled](Untitled_28.png)
+![](Untitled_28.png)
 
 ```python
 n_components_pca = np.argmax(cum_evr >= thresh) + 1
@@ -1600,7 +1611,7 @@ img
 
 It shows the decision paths from the root to the leaves:
 
-![Untitled](Untitled_29.png)
+![](Untitled_29.png)
 
 Next, we evaluate the model on the test dataset to assess its accuracy. Using this tree to predict test data, we get the following:
 
@@ -1628,7 +1639,7 @@ plt.xlabel('Predicted Label')
 plt.show()
 ```
 
-![Untitled](Untitled_30.png)
+![](Untitled_30.png)
 
 #### **Optimizing Decision Tree Depth**
 
@@ -1669,7 +1680,7 @@ img = Image(graph.create_png())
 img
 ```
 
-![Untitled](Untitled_31.png)
+![](Untitled_31.png)
 
 Updated confusion matrix:
 
@@ -1683,7 +1694,7 @@ plt.xlabel('Predicted Label')
 plt.show()
 ```
 
-![Untitled](Untitled_32.png)
+![](Untitled_32.png)
 
 We can also plot the ROC curve:
 
@@ -1700,7 +1711,7 @@ plt.title('Receiver Operating Characteristic Curve')
 plt.show()
 ```
 
-![Untitled](Untitled_33.png)
+![](Untitled_33.png)
 
 Observe that our decision tree analysis demonstrates the effectiveness of fine-tuning. Both the basic and optimized decision trees perform exceptionally well, which means there is great potential of using PCA-transformed features in classification tasks. 
 
@@ -1729,11 +1740,11 @@ The test accuracy with basic bagging (using decision tree) is 0.9952077016052079
 
 The confusion matrix and the ROC curve are as follows:
 
-![Untitled](Untitled_34.png)
+![](Untitled_34.png)
 
 And ROC curve is
 
-![Untitled](Untitled_35.png)
+![](Untitled_35.png)
 
 The confusion matrix and the ROC curve shows us the model's high performance.
 
@@ -1753,7 +1764,7 @@ test_accuracy = accuracy_score(y_test, y_pred)
 print(f"The test accuracy with basic bagging (using decision tree) is {test_accuracy}")
 ```
 
-![Untitled](Untitled_36.png)
+![](Untitled_36.png)
 
 #### **Optimizing KNN Parameters**
 
@@ -1784,7 +1795,7 @@ print(f"The test accuracy for KNN with best number of neighbors is {test_accurac
 
 The test accuracy for KNN with best number of neighbors is 0.9939566148561251, demonstrating high true positive rates and low false positive rates.
 
-![Untitled](Untitled_37.png)
+![](Untitled_37.png)
 
 ROC curve indicates an excellent performance:
 
@@ -1801,7 +1812,7 @@ plt.title('Receiver Operating Characteristic Curve')
 plt.show()
 ```
 
-![Untitled](Untitled_38.png)
+![](Untitled_38.png)
 
 ## **Discriminant Analysis**
 
@@ -1859,9 +1870,9 @@ print(f"The test accuracy with LDA is {test_accuracy}")
 ## The test accuracy with LDA is 0.9932462520409678
 ```
 
-![Untitled](Untitled_39.png)
+![](Untitled_39.png)
 
-![Untitled](Untitled_40.png)
+![](Untitled_40.png)
 
 Both showcase effectiveness in classifying phishing URLs with high accuracy.
 
@@ -1931,11 +1942,11 @@ plt.title('Receiver Operating Characteristic Curve')
 plt.show()
 ```
 
-![Untitled](Untitled_41.png)
+![](Untitled_41.png)
 
 The confusion matrix reveals a high number of correct predictions with very few false positives and negatives. Good news.
 
-![Untitled](Untitled_42.png)
+![](Untitled_42.png)
 
 ROC curve approaches the top left corner, meaning an excellent model performance!
 
@@ -1955,9 +1966,9 @@ print(f"The test accuracy with basic SVM is {test_accuracy}")
 
 The test accuracy with basic SVM is 0.9910515490150342
 
-![Untitled](Untitled_43.png)
+![](Untitled_43.png)
 
-![Untitled](Untitled_44.png)
+![](Untitled_44.png)
 
 The confusion matrix for the RBF model shows slightly more misclassifications than the linear model, which is also reflected in the ROC curve. 
 
@@ -2165,7 +2176,7 @@ history = model.fit(
 
 Wait until all the epochs have been finished:
 
-![Untitled](Untitled_46.png)
+![](Untitled_46.png)
 
 Get the best model values
 
@@ -2181,11 +2192,11 @@ values_of_best_model = df_history.loc[df_history.val_loss.idxmin()]
 values_of_best_model
 ```
 
-![Untitled](Untitled_47.png)
+![](Untitled_47.png)
 
 `values_of_best_model`:
 
-![Untitled](Untitled_48.png)
+![](Untitled_48.png)
 
 Also save the class assignments, so we can use them later.
 
@@ -2228,9 +2239,9 @@ plt.show()
 
 Plot the training accuracy (**`accuracy`**) and validation accuracy (**`validation_accuracy`**) are plotted against the number of epochs:
 
-![Untitled](Untitled_49.png)
+![](Untitled_49.png)
 
-![Untitled](Untitled_50.png)
+![](Untitled_50.png)
 
 Not much overfitting observed.
 
@@ -2461,9 +2472,9 @@ plt.legend()
 plt.show()
 ```
 
-![Untitled](Untitled_51.png)
+![](Untitled_51.png)
 
-![Untitled](Untitled_52.png)
+![](Untitled_52.png)
 
 The validation loss generally remains low and close to the training loss, which suggests that the model is not overfitting and has learned the underlying patterns in the data well.
 
@@ -2524,7 +2535,7 @@ plt.xlabel('Predicted Label')
 plt.show()
 ```
 
-![Untitled](Untitled_53.png)
+![](Untitled_53.png)
 
 #### **Classification Report**
 
@@ -2565,7 +2576,7 @@ plt.legend(loc='lower right')
 plt.show()
 ```
 
-![Untitled](Untitled_54.png)
+![](Untitled_54.png)
 
 ```python
 ## area under the curve
