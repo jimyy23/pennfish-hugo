@@ -339,6 +339,7 @@
     </li>
     <li><a href="#challenges">Challenges</a></li>
     <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#closing-notes">Closing Notes</a></li>
     <li><a href="#references">References</a></li>
   </ol>
 </nav>
@@ -420,7 +421,7 @@
 
 
                 <time class="article-time--reading">
-                    64 minute read
+                    65 minute read
                 </time>
             </div>
         
@@ -5064,15 +5065,24 @@ $$</p>
 <h2 id="challenges">
     <a href="#challenges">#</a>
     Challenges
-</h2><p>Have you attempted challenging analysis? How much time would have been required to
-complete your project?</p>
-<p>Big Data</p>
-<p>Our project applied artificial neural network classification (ANN), which includes the baseline model, tuning ANN and avoiding overfitting, build the model and evaluation. We made modifications of the ANN model to obtain accurate prediction of the phishing websites.</p>
-<p>On average, each team member spent 20 hours on the project.</p>
+</h2><p>Our project applied the application of an artificial neural network (ANN) for the binary classification, which included developing a baseline model, tuning the ANN, preventing overfitting, building the model, and evaluating it. We modified the ANN model to achieve more accurate predictions of phishing websites.</p>
+<p>We also applied Principal Component Analysis (PCA) to reduce the dimensionality of the data before applying it to a Support Vector Machine (SVM). Despite this, it still took a considerable amount of time to run (over an hour for a simple linear kernel SVM).</p>
+<p>The large size of the data made cross-validation challenging; a simple 5-fold cross-validation with a few tuning parameters could take more than an hour.</p>
+<p>To avoid system crashes, we used high-RAM machines to reduce boot-up and shutdown times, and to ensure smooth program launches and task executions.</p>
+<p>We also used a T4 GPU as a hardware accelerator, which provides strong performance for mid-range machine learning tasks.</p>
+<p>On average, each team member dedicated 20 hours to the project.</p>
 <h2 id="conclusion">
     <a href="#conclusion">#</a>
     Conclusion
-</h2><p>Our project is applied logistic regression, PCA to reduce dimensionality, logistic regression with PCA, ridge regression, linear regression (unregularized), linear regression (unregularized) with PCA, random forest classifier, random forest regression, and decision tree classifier which are taught in class. We also extend the scope to k-nearest neighbor, discriminant analysis, support vector machine (SVM), and artificial neural networks classification (ANN).</p>
+</h2><p>Our project started from the acquisition of data, preprocessing, exploratory analysis, and moving through to the model training phase.</p>
+<p>The project applied logistic regression, PCA to reduce dimensionality, logistic regression with PCA, ridge regression, linear regression (unregularized), linear regression (unregularized) with PCA, random forest classifier, random forest regression, and decision tree classifier.</p>
+<p>We also extend the scope to k-nearest neighbor, discriminant analysis, support vector machine (SVM), and artificial neural networks classification (ANN).</p>
+<p>A significant emphasis was placed on evaluating different models to establish their efficacy in distinguishing between legitimate and phishing websites.</p>
+<p>From our results, the machine learning models achieved very high accuracy, demonstrating their capability to generalize well on unseen data — particularly highlighted by the performance of the artificial neural networks and support vector machines, which not only provided robust classification metrics but also indicated low overfitting as evidenced by the minimal gap between training and validation losses.</p>
+<h2 id="closing-notes">
+    <a href="#closing-notes">#</a>
+    Closing Notes
+</h2><p>Overall, the project not only advances academic and practical understandings of phishing detection, but it also shows a potential approach for future research that could include more sophisticated algorithms and integration with real-time data systems. 🐟</p>
 <h2 id="references">
     <a href="#references">#</a>
     References

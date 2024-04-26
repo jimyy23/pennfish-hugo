@@ -2595,18 +2595,33 @@ Overall, the model is performing very well with high accuracy and low loss on bo
 
 ## Challenges
 
-Have you attempted challenging analysis? How much time would have been required to
-complete your project?
+Our project applied the application of an artificial neural network (ANN) for the binary classification, which included developing a baseline model, tuning the ANN, preventing overfitting, building the model, and evaluating it. We modified the ANN model to achieve more accurate predictions of phishing websites.
 
-Big Data
+We also applied Principal Component Analysis (PCA) to reduce the dimensionality of the data before applying it to a Support Vector Machine (SVM). Despite this, it still took a considerable amount of time to run (over an hour for a simple linear kernel SVM).
 
-Our project applied artificial neural network classification (ANN), which includes the baseline model, tuning ANN and avoiding overfitting, build the model and evaluation. We made modifications of the ANN model to obtain accurate prediction of the phishing websites. 
+The large size of the data made cross-validation challenging; a simple 5-fold cross-validation with a few tuning parameters could take more than an hour.
 
-On average, each team member spent 20 hours on the project. 
+To avoid system crashes, we used high-RAM machines to reduce boot-up and shutdown times, and to ensure smooth program launches and task executions. 
+
+We also used a T4 GPU as a hardware accelerator, which provides strong performance for mid-range machine learning tasks.
+
+On average, each team member dedicated 20 hours to the project.
 
 ## Conclusion
 
-Our project is applied logistic regression, PCA to reduce dimensionality, logistic regression with PCA, ridge regression, linear regression (unregularized), linear regression (unregularized) with PCA, random forest classifier, random forest regression, and decision tree classifier which are taught in class. We also extend the scope to k-nearest neighbor, discriminant analysis, support vector machine (SVM), and artificial neural networks classification (ANN). 
+Our project started from the acquisition of data, preprocessing, exploratory analysis, and moving through to the model training phase. 
+
+The project applied logistic regression, PCA to reduce dimensionality, logistic regression with PCA, ridge regression, linear regression (unregularized), linear regression (unregularized) with PCA, random forest classifier, random forest regression, and decision tree classifier. 
+
+We also extend the scope to k-nearest neighbor, discriminant analysis, support vector machine (SVM), and artificial neural networks classification (ANN). 
+
+A significant emphasis was placed on evaluating different models to establish their efficacy in distinguishing between legitimate and phishing websites.
+
+From our results, the machine learning models achieved very high accuracy, demonstrating their capability to generalize well on unseen data — particularly highlighted by the performance of the artificial neural networks and support vector machines, which not only provided robust classification metrics but also indicated low overfitting as evidenced by the minimal gap between training and validation losses.
+
+## Closing Notes
+
+Overall, the project not only advances academic and practical understandings of phishing detection, but it also shows a potential approach for future research that could include more sophisticated algorithms and integration with real-time data systems. 🐟
 
 ## References
 
